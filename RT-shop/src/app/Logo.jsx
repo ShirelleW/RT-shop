@@ -6,7 +6,6 @@ const Logo = () => {
     return (
         <div className={styles.logoContainer}>
             <div className={styles.logo} />
-            <NavBar />
         </div>
     )
 }
