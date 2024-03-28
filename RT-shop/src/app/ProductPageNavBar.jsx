@@ -6,9 +6,10 @@ import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
 const ProductPageNavBar = () => {
     return (
         <div className={styles.productPageNavBar}>
+            <Link href='/cart'><ShoppingBagTwoToneIcon /> </Link>
+            <Link href='/cart'>CART |</Link>
             <Link href='/'> HOME |</Link>
             <Link href='/deals'> DAILY DEALS |</Link>
-            <Link href='/cart'> <ShoppingBagTwoToneIcon /> </Link>
         </div>
       )
 }

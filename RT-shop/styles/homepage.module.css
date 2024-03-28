@@ -233,8 +233,10 @@
     .productPageNavBar{
         width: 110vw;
         font-size: large;
+
         display: flex;
         justify-content: flex-end;
+        align-items: center;
     }
     #productName{
         font-family: "Workbench", sans-serif;

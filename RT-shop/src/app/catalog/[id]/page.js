@@ -26,7 +26,6 @@ const IndividualProduct = ({ params }) => {
     setNumOfItemsSelected((prev) => prev == 0 ? 0 : prev - 1)
   }
 
-  console.log(numOfItemsSelected)
   return (
     <div className={styles.productPageContainer}>
       <ProductPageNavBar />
@@ -39,8 +38,8 @@ const IndividualProduct = ({ params }) => {
             <Image
               src='/be-good-light-grey.png'
               alt=''
-              width={300}
-              height={400} />
+              width={250}
+              height={290} />
             <h4 id={styles.productPrice}>{product.price}</h4>
             <div className={styles.sizeIncDecBtn}>
               <FormControl className={styles.sizeSelector}>
