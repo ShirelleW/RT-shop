@@ -2,6 +2,7 @@ export const itemsInStock = [
     {
         id: 1,
         name: "BE GOOD t-shirt",
+        price: '$24.00',
         size: [
             {
                 "count": 5,
@@ -49,6 +50,7 @@ export const itemsInStock = [
     {
         id: 2,
         name: "BE WHOLE t-shirt",
+        price: '$24.00',
         size: [
             {
                 "count": 5,
@@ -96,6 +98,7 @@ export const itemsInStock = [
     {
         id: 3,
         name: "GET LOUD t-shirt",
+        price: '$24.00',
         size: [
             {
                 "count": 2,
