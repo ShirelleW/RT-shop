@@ -10,8 +10,12 @@ const cartSlice = createSlice({
     reducers: {
         increment: (state, action) => {
             state.count += 1;
+        },
+        decrement: (state, action) => {
+            state.count -= 1;
         }
     }
 });
 
+export const { increment, decrement } = cartSlice.actions;
 export default cartSlice.reducer;
