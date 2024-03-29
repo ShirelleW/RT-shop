@@ -75,7 +75,7 @@ const IndividualProduct = ({ params }) => {
                   onChange={(e) => handleSizeSelect(e)}
                 >
                   {
-                    sizesAvailable.map((product) => {
+                    sizesAvailable?.map((product) => {
                       return (
                         <MenuItem key={product.size} value={product.size}>{product.size}</MenuItem>
                       )

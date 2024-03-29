@@ -49,6 +49,10 @@
     position: absolute;
     top: 50px;
     right: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .catalogContent{
@@ -149,7 +153,6 @@
     justify-content: center;
 }
 .selectNonValid{
-    /* background-color: red; */
     animation-name: nonValidBtnClick;
     animation-duration: .5s;
 }
@@ -187,13 +190,20 @@
         height: 75vh;
         display: flex;
     }
-
+    .catalog{
+        display: flex;
+        flex-direction: column;
+    }
     .logoContainer{
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 100vw;
-        height: 100px;
+        height: 90px;
+    }
+    .logoNavContainer{
+        display: flex;
+        flex-direction: column;
     }
     .logo{
         position: relative;
@@ -206,9 +216,10 @@
     }
 
     .navBar{
+        /* DO NOT CHANGE CANNOT OVERRIDE W/ STANDING REG MONITOR STYLES */
         position: absolute;
         width: 100%;
-        height: 20px;
+        height: 40px;
         background: linear-gradient(to bottom, #c1ff72, #89d1d6);
         font-family: "Workbench", sans-serif;
         top: 100px;
@@ -219,7 +230,8 @@
         background: linear-gradient(to bottom, #c1ff72, #89d1d6);
         width: 100vw;
         height: fit-content;
-    
+        padding-top: 70px;
+
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

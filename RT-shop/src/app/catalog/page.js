@@ -9,9 +9,11 @@ import styles from '../../../styles/homepage.module.css'
 const Catalog = () => {
 
   return (
-    <div className={styles.logoNavContainer}>
-      <Logo />
-      <NavBar />
+    <div className={styles.catalog}>
+      <div className={styles.logoNavContainer}>
+        <Logo />
+        <NavBar />
+      </div>
       <div className={styles.catalogContent}>
         {
           itemsInStock.map((item) =>

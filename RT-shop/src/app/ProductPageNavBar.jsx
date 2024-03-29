@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { useAppSelector } from '@/lib/hooks';
 import styles from '../../styles/homepage.module.css'
