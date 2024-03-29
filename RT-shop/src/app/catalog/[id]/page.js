@@ -2,15 +2,16 @@
 
 import React, { useState } from 'react'
 import { itemsInStock } from '@/CatalogItems'
-import { FormControl, InputLabel, Select, MenuItem, Button, dialogClasses } from '@mui/material'
+import { FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material'
 import Image from 'next/image'
 import styles from '../../../../styles/homepage.module.css'
 import ProductPageNavBar from '@/app/ProductPageNavBar'
-import { useAppDispatch, useAppSelector } from '../../../lib/hooks'
-import { addToCart } from '../../../lib/features/Cart/cartSlice'
+import { useAppDispatch } from '@/lib/hooks'
+import { addToCart, increment } from '@/lib/features/Cart/cartSlice'
+
+
 const IndividualProduct = ({ params }) => {
 
-  const cart = useAppSelector(state => state.cart.cartItems)
   const dispatch = useAppDispatch();
   
   const [size, setSize] = useState(null)
@@ -43,9 +44,10 @@ const IndividualProduct = ({ params }) => {
   const handleAddToCart = () => {
     size == null 
     ? handleNonValidClick()
-    : dispatch(addToCart({"name": product.name, size, "count": numOfItemsSelected}))
+    : (dispatch(addToCart({"name": product.name, size, "count": numOfItemsSelected})), dispatch(increment(numOfItemsSelected)))
   }
   
+  console.log(numOfItemsSelected)
   return (
     <div className={styles.productPageContainer}>
       <ProductPageNavBar />

@@ -86,10 +86,30 @@
 }
 .productPageNavBar{
     width: 100vw;
+    height: 50px;
     background-color: #c1ff72;
     font-size: x-large;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+}
+.shoppingTotal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+#cartTotal{
+    position: absolute;
+    bottom: 0px;
+    right: -5px;
+
+    background: #89d1d6;
+    border-radius: 50%;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: bold;
 }
 .individualProductContainer{
     width: 100vw;
@@ -128,13 +148,11 @@
     align-items: flex-end;
     justify-content: center;
 }
-
 .selectNonValid{
     /* background-color: red; */
     animation-name: nonValidBtnClick;
     animation-duration: .5s;
 }
-
 @keyframes nonValidBtnClick {
     0%  {background-color: transparent;}
     25% {background-color: red;}
@@ -249,6 +267,24 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+    }
+    .shoppingTotal{
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+    #cartTotal{
+        position: absolute;
+        bottom: 0px;
+        right: -5px;
+    
+        background: #89d1d6;
+        border-radius: 50%;
+    
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: medium;
+        font-weight: bold;
     }
     #productName{
         font-family: "Workbench", sans-serif;

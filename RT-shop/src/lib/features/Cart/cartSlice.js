@@ -1,8 +1,8 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-    count: 0,
     cartItems: [],
+    count: 0
 };
 
 const cartSlice = createSlice({
@@ -10,14 +10,14 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         increment: (state, action) => {
-            state.count += 1;
+            state.count += action.payload;
         },
         decrement: (state, action) => {
             state.count -= 1;
         },
         addToCart: (state, action) => {
             state.cartItems.push(action.payload)
-        }
+        },
     }
 });
 
