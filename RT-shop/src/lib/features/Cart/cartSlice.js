@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
     count: 0,
+    cartItems: [],
 };
 
 const cartSlice = createSlice({
@@ -13,9 +14,12 @@ const cartSlice = createSlice({
         },
         decrement: (state, action) => {
             state.count -= 1;
+        },
+        addToCart: (state, action) => {
+            state.cartItems.push(action.payload)
         }
     }
 });
 
-export const { increment, decrement } = cartSlice.actions;
+export const { increment, decrement, addToCart } = cartSlice.actions;
 export default cartSlice.reducer;

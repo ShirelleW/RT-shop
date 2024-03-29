@@ -6,11 +6,17 @@ import { FormControl, InputLabel, Select, MenuItem, Button, dialogClasses } from
 import Image from 'next/image'
 import styles from '../../../../styles/homepage.module.css'
 import ProductPageNavBar from '@/app/ProductPageNavBar'
-
+import { useAppDispatch, useAppSelector } from '../../../lib/hooks'
+import { addToCart } from '../../../lib/features/Cart/cartSlice'
 const IndividualProduct = ({ params }) => {
 
-  const [size, setSize] = useState('')
+  const cart = useAppSelector(state => state.cart.cartItems)
+  const dispatch = useAppDispatch();
+  
+  const [size, setSize] = useState(null)
   const [numOfItemsSelected, setNumOfItemsSelected] = useState(1)
+  const [nonValidClick, setNonValidClick] = useState(false)
+
   const product = itemsInStock.filter(item => item.id == params.id)[0]
   const sizesAvailable = product.size.filter((item) => item.count > 0)
 
@@ -23,9 +29,23 @@ const IndividualProduct = ({ params }) => {
   }
 
   const handleDecrease = () => {
-    setNumOfItemsSelected((prev) => prev == 0 ? 0 : prev - 1)
+    setNumOfItemsSelected((prev) => prev === 1 ? 1 : prev - 1)
   }
 
+  const handleNonValidClick = () => {
+    setNonValidClick(true)
+
+      setTimeout(() => {
+      setNonValidClick(false)
+    }, 500)
+
+  }
+  const handleAddToCart = () => {
+    size == null 
+    ? handleNonValidClick()
+    : dispatch(addToCart({"name": product.name, size, "count": numOfItemsSelected}))
+  }
+  
   return (
     <div className={styles.productPageContainer}>
       <ProductPageNavBar />
@@ -43,8 +63,9 @@ const IndividualProduct = ({ params }) => {
             <h4 id={styles.productPrice}>{product.price}</h4>
             <div className={styles.sizeIncDecBtn}>
               <FormControl className={styles.sizeSelector}>
-                <InputLabel id="size-label">Size</InputLabel>
+                <InputLabel id="size-label">Pick A Size</InputLabel>
                 <Select
+                  className = {nonValidClick ? styles.selectNonValid: ''}
                   labelId="size-label"
                   id="size-select"
                   defaultValue={size ?? ''}
@@ -61,7 +82,12 @@ const IndividualProduct = ({ params }) => {
                 </Select>
               </FormControl>
               <div className={styles.incDecAddBtns}>
-                <Button id={styles.addToCartBtn} variant="outlined">ADD {numOfItemsSelected >= 1 && numOfItemsSelected} TO CART</Button>
+                <Button id={styles.addToCartBtn} 
+                        variant="outlined"
+                        onClick={handleAddToCart}
+                    > 
+                    ADD {numOfItemsSelected >= 1 && numOfItemsSelected} TO CART
+                </Button>
                 <Button variant="contained" onClick={handleDecrease}>-</Button>
                 <Button variant="contained" onClick={handleAdd}>+</Button>
               </div>

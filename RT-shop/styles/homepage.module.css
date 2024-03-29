@@ -128,6 +128,18 @@
     align-items: flex-end;
     justify-content: center;
 }
+
+.selectNonValid{
+    /* background-color: red; */
+    animation-name: nonValidBtnClick;
+    animation-duration: .5s;
+}
+
+@keyframes nonValidBtnClick {
+    0%  {background-color: transparent;}
+    25% {background-color: red;}
+    100% {background-color: transparent}
+  }
 .incDecAddBtns{
     width: 400px;
 
